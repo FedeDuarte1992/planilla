@@ -41,7 +41,7 @@
         color: #555;
     }
 
-    input[type="number"] {
+    input[type="number"], select {
         width: 100%;
         padding: 5px;
         margin-bottom: 10px;
@@ -143,9 +143,9 @@
             return;
         }
 
-        var totalPañales = (quantityBags1 + quantityBags2) * diaperSize; // Modificado: Calcular total de pañales según el tamaño seleccionado
+        var totalPañales = (quantityBags1 * diaperSize) + (quantityBags2 * 80); // Modificado: Calcular total de pañales según el tamaño seleccionado
         var pañales1 = quantityBags1 * diaperSize;
-        var pañales2 = quantityBags2 * diaperSize;
+        var pañales2 = quantityBags2 * 80; // Modificado: Siempre asumir que cada bulto de 2da calidad contiene 80 pañales
 
         var descarte = machineHits - pañales1 - pañales2;
         var descartePercentage = (descarte / machineHits) * 100;
@@ -223,3 +223,4 @@
 </script>
 </body>
 </html>
+
