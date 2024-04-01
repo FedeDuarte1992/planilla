@@ -9,7 +9,6 @@
         background: rgb(131,58,180);
         background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.4542191876750701) 50%, rgba(252,176,69,1) 100%);
         font-family: Arial, sans-serif;
-        
         margin: 0;
         padding: 0;
         display: flex;
@@ -115,6 +114,12 @@
         <label for="quantityBags2">Cantidad de Bultos de Pañales de 2da:</label>
         <input type="number" id="quantityBags2" name="quantityBags2" required><br>
 
+        <label for="diaperSize">Tamaño de los bultos de pañales:</label>
+        <select id="diaperSize" name="diaperSize">
+            <option value="80">80</option>
+            <option value="90">90</option>
+        </select><br>
+
         <button type="button" onclick="calculateProduction()">Calcular Producción</button>
     </form>
 
@@ -130,6 +135,7 @@
         var currentMachineCounter = parseInt(document.getElementById("currentMachineCounter").value);
         var quantityBags1 = parseInt(document.getElementById("quantityBags1").value);
         var quantityBags2 = parseInt(document.getElementById("quantityBags2").value);
+        var diaperSize = parseInt(document.getElementById("diaperSize").value); // Nuevo: Tamaño de los bultos de pañales
 
         var machineHits = currentMachineCounter - initialMachineCounter;
         if (machineHits < 0) {
@@ -137,9 +143,9 @@
             return;
         }
 
-        var totalPañales = (quantityBags1 + quantityBags2) * 80;
-        var pañales1 = quantityBags1 * 80;
-        var pañales2 = quantityBags2 * 80;
+        var totalPañales = (quantityBags1 + quantityBags2) * diaperSize; // Modificado: Calcular total de pañales según el tamaño seleccionado
+        var pañales1 = quantityBags1 * diaperSize;
+        var pañales2 = quantityBags2 * diaperSize;
 
         var descarte = machineHits - pañales1 - pañales2;
         var descartePercentage = (descarte / machineHits) * 100;
