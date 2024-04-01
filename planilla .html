@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Producción de Pañales</title>
+<style>
+    body {
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.4542191876750701) 50%, rgba(252,176,69,1) 100%);
+        font-family: Arial, sans-serif;
+        
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    #container {
+        width: 400px;
+        padding: 20px;
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,0.1) 0%, rgba(253,29,29,0.1) 50%, rgba(252,176,69,0.1) 100%);
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #resultsContainer {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    #resultsList {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .resultItem {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .resultItem button {
+        padding: 5px 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+    }
+
+    .resultItem button:hover {
+        background-color: #c82333;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <h1>Calculadora de Producción de Pañales</h1>
+    <form id="productionForm">
+        <label for="initialMachineCounter">Contador de Máquina Inicial:</label>
+        <input type="number" id="initialMachineCounter" name="initialMachineCounter" required><br>
+
+        <label for="currentMachineCounter">Contador de Máquina Actual:</label>
+        <input type="number" id="currentMachineCounter" name="currentMachineCounter" required><br>
+
+        <label for="quantityBags1">Cantidad de Bultos de Pañales de 1ra:</label>
+        <input type="number" id="quantityBags1" name="quantityBags1" required><br>
+
+        <label for="quantityBags2">Cantidad de Bultos de Pañales de 2da:</label>
+        <input type="number" id="quantityBags2" name="quantityBags2" required><br>
+
+        <button type="button" onclick="calculateProduction()">Calcular Producción</button>
+    </form>
+
+    <div id="resultsContainer">
+        <h2>Resultados:</h2>
+        <ul id="resultsList"></ul>
+    </div>
+</div>
+
+<script>
+    function calculateProduction() {
+        var initialMachineCounter = parseInt(document.getElementById("initialMachineCounter").value);
+        var currentMachineCounter = parseInt(document.getElementById("currentMachineCounter").value);
+        var quantityBags1 = parseInt(document.getElementById("quantityBags1").value);
+        var quantityBags2 = parseInt(document.getElementById("quantityBags2").value);
+
+        var machineHits = currentMachineCounter - initialMachineCounter;
+        if (machineHits < 0) {
+            alert("El contador actual de la máquina debe ser mayor o igual que el contador inicial.");
+            return;
+        }
+
+        var totalPañales = (quantityBags1 + quantityBags2) * 80;
+        var pañales1 = quantityBags1 * 80;
+        var pañales2 = quantityBags2 * 80;
+
+        var descarte = machineHits - pañales1 - pañales2;
+        var descartePercentage = (descarte / machineHits) * 100;
+
+        var currentDate = new Date();
+        var currentTime = currentDate.toLocaleTimeString();
+
+        var resultsList = document.getElementById("resultsList");
+
+        // Crear un nuevo elemento de lista para los resultados actuales
+        var resultItem = document.createElement("li");
+        resultItem.classList.add("resultItem");
+        resultItem.innerHTML = "Hora: " + currentTime + "<br>Golpes de máquina: " + machineHits + "<br>Cantidad de pañales de 1ra: " + pañales1 + " (Bultos: " + quantityBags1 + ")" + "<br>Cantidad de pañales de 2da: " + pañales2 + " (Bultos: " + quantityBags2 + ")" + "<br>Porcentaje de descarte: " + descartePercentage.toFixed(2) + "%";
+
+        // Crear un botón de eliminar para este resultado
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Eliminar";
+        deleteButton.onclick = function() {
+            // Eliminar el elemento de la lista de resultados
+            resultsList.removeChild(resultItem);
+            // Actualizar el registro de resultados en el almacenamiento local
+            updateLocalStorage();
+        };
+
+        // Agregar el botón de eliminar al elemento de lista de resultados
+        resultItem.appendChild(deleteButton);
+
+        // Agregar el nuevo elemento de lista a la lista de resultados, en la parte superior
+        resultsList.insertBefore(resultItem, resultsList.firstChild);
+
+        // Guardar los resultados en el almacenamiento local
+        updateLocalStorage();
+    }
+
+    function updateLocalStorage() {
+        var resultsList = document.getElementById("resultsList");
+        var resultsArray = [];
+        // Iterar sobre cada elemento de la lista de resultados y agregarlo al array de resultados
+        resultsList.childNodes.forEach(function(child) {
+            if (child.nodeName === "LI") {
+                resultsArray.push(child.innerHTML);
+            }
+        });
+        // Guardar el array de resultados en el almacenamiento local
+        localStorage.setItem("productionResults", JSON.stringify(resultsArray));
+    }
+
+    // Función para cargar los resultados guardados en el almacenamiento local al cargar la página
+    window.onload = function() {
+        var savedResults = localStorage.getItem("productionResults");
+        if (savedResults) {
+            var resultsArray = JSON.parse(savedResults);
+            var resultsList = document.getElementById("resultsList");
+            // Crear un elemento de lista para cada resultado guardado y agregarlo a la lista de resultados
+            resultsArray.forEach(function(resultText) {
+                var resultItem = document.createElement("li");
+                resultItem.classList.add("resultItem");
+                resultItem.innerHTML = resultText;
+                // Crear un botón de eliminar para este resultado
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Eliminar";
+                deleteButton.onclick = function() {
+                    // Eliminar el elemento de la lista de resultados
+                    resultsList.removeChild(resultItem);
+                    // Actualizar el registro de resultados en el almacenamiento local
+                    updateLocalStorage();
+                };
+                // Agregar el botón de eliminar al elemento de lista de resultados
+                resultItem.appendChild(deleteButton);
+                // Agregar el elemento de lista a la lista de resultados
+                resultsList.appendChild(resultItem);
+            });
+        }
+    };
+</script>
+</body>
+</html>
