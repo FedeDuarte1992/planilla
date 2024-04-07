@@ -30,7 +30,7 @@ function calculateProduction() {
 
     // Calcular la cantidad de pañales de segunda calidad
     if (!isNaN(cantidadBultos2)) {
-        pañales2 = cantidadBultos2 * tamanoPañal;
+        pañales2 = cantidadBultos2 * 80;
         bultos2 = Math.ceil(pañales2 / 80);
     }
 
