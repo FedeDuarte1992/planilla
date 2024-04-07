@@ -6,7 +6,7 @@ body {
 }
 
 #container {
-    max-width: 90%; /* Modificado para que se ajuste al ancho del dispositivo */
+    max-width: 90%;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -24,8 +24,8 @@ form {
 }
 
 label {
-    text-align: center;
-    display: block;
+    display: inline-block; /* Cambiado a inline-block para que ocupen el mismo renglón */
+    width: 45%; /* Ancho ajustable según tu preferencia */
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
@@ -33,13 +33,13 @@ label {
 
 input[type="number"],
 select {
-    width: 100%;
+    width: 50%; /* Ancho ajustable según tu preferencia */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: right; /* Texto alineado a la derecha */
 }
 
 button {
@@ -67,7 +67,7 @@ button:disabled {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow-x: auto; /* Agregado para permitir el desplazamiento horizontal en tablas largas */
+    overflow-x: auto;
 }
 
 table {
@@ -87,7 +87,6 @@ th {
 }
 
 @media screen and (max-width: 600px) {
-    /* Estilos específicos para pantallas pequeñas */
     #container {
         max-width: 100%;
     }
