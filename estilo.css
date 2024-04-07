@@ -6,8 +6,8 @@ body {
 }
 
 #container {
-    max-width: 600px;
-    margin: 20px auto; /* Esto centra horizontalmente el contenedor principal */
+    max-width: 90%; /* Modificado para que se ajuste al ancho del dispositivo */
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -43,7 +43,7 @@ select {
 }
 
 button {
-    margin:5px;
+    margin: 5px;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -61,12 +61,13 @@ button:disabled {
 #resultsContainerParadas,
 #resultsContainer {
     text-align: center;
-    width: 90%; /* Modificado a 90% para que los resultados ocupen el 90% del ancho */
-    margin: 20px auto; /* Esto centra horizontalmente el contenedor de resultados */
+    width: 90%;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-x: auto; /* Agregado para permitir el desplazamiento horizontal en tablas largas */
 }
 
 table {
@@ -83,4 +84,23 @@ th, td {
 th {
     background-color: #f0f0f0;
     font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    /* Estilos específicos para pantallas pequeñas */
+    #container {
+        max-width: 100%;
+    }
+
+    input[type="number"],
+    select,
+    button {
+        width: 100%;
+    }
+
+    #resultsContainerParadas,
+    #resultsContainer {
+        width: 100%;
+        overflow-x: auto;
+    }
 }

@@ -34,21 +34,26 @@
     <button type="button" onclick="calculateProduction()">Calcular Producción</button>
     <button type="button" onclick="openGoogleSheets()">Abrir en Google Sheets</button>
 
+    <button type="button" onclick="toggleGelFields()">Calcular Gel</button>
+
+<div id="gelFields" style="display: none;">
     <label for="totalWeight">Peso Total (g):</label>
-<input type="number" id="totalWeight" name="totalWeight" required><br>
+    <input type="number" id="totalWeight" name="totalWeight" required><br>
 
-<label for="multiplier">Multiplicador:</label>
-<select id="multiplier" name="multiplier">
-    <option value="6" selected>6</option>
-    <option value="4">4</option>
-</select><br>
+    <label for="multiplier">Multiplicador :</label>
+    <select id="multiplier" name="multiplier">
+        <option value="6" selected>6</option>
+        <option value="4">4</option>
+    </select><br>
 
-<label for="diapersPerMinute">Pañales por minuto:</label>
-<input type="number" id="diapersPerMinute" name="diapersPerMinute" required><br>
+    <label for="diapersPerMinute">Pañales por minuto:</label>
+    <input type="number" id="diapersPerMinute" name="diapersPerMinute" required><br>
 
-<button type="button" onclick="calculateGel()">Calcular Gel por Pañal</button>
+    <button type="button" onclick="calculateGel()">Calcular</button>
 
-<div id="gelResult"></div>
+    <div id="gelResult"></div>
+</div>
+
 
     
 </div>

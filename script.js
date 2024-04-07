@@ -138,6 +138,15 @@ function openGoogleSheets() {
     link.click();
 }
 
+function toggleGelFields() {
+    var gelFields = document.getElementById("gelFields");
+    if (gelFields.style.display === "none") {
+        gelFields.style.display = "block";
+    } else {
+        gelFields.style.display = "none";
+    }
+}
+
 function calculateGel() {
     var pesoTotal = parseFloat(document.getElementById("totalWeight").value);
     var multiplicador = parseInt(document.getElementById("multiplier").value);
@@ -148,3 +157,5 @@ function calculateGel() {
     var gelResultElement = document.getElementById("gelResult");
     gelResultElement.innerHTML = "<p>Peso de gel por pañal: " + resultadoGel.toFixed(2) + " gramos por pañal</p>";
 }
+
+
