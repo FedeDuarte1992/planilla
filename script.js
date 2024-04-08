@@ -164,5 +164,10 @@ function toggleDiaperCalculator() {
     var diaperCalculator = document.getElementById("diaperCalculator");
     diaperCalculator.style.display = (diaperCalculator.style.display === "none") ? "block" : "none";
 }
+
+function calculateGelAndToggleFields() {
+    calculateGel();
+    toggleGelFields();
 }
+
 
