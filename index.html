@@ -10,7 +10,7 @@
 <div id="container">
     <h1>Calculadora de Producción de Pañales</h1>
     <button type="button" onclick="toggleDiaperCalculator()">Calculadora de Pañales</button>
-    <button type="button" onclick="calculateGel();toggleGelFields()">Calcular Gel</button>
+    <button type="button" onclick="calculateGelAndToggleFields()">Calcular Gel</button>
     <button type="button" onclick="openGoogleSheets()">Abrir en Google Sheets</button>
     
     <div id="diaperCalculator" style="display: none;">
@@ -40,22 +40,22 @@
     </div>
 
     <div id="gelFields" style="display: none;">
-    <label for="totalWeight">Peso Total (g):</label>
-    <input type="number" id="totalWeight" name="totalWeight" required><br>
+        <label for="totalWeight">Peso Total (g):</label>
+        <input type="number" id="totalWeight" name="totalWeight" required><br>
 
-    <label for="multiplier">Multiplicador (10 o 15):</label>
-    <select id="multiplier" name="multiplier">
-        <option value="10" selected>10</option>
-        <option value="15">15</option>
-    </select><br>
+        <label for="multiplier">Multiplicador (10 o 15):</label>
+        <select id="multiplier" name="multiplier">
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+        </select><br>
 
-    <label for="diapersPerMinute">Pañales por minuto:</label>
-    <input type="number" id="diapersPerMinute" name="diapersPerMinute" required><br>
+        <label for="diapersPerMinute">Pañales por minuto:</label>
+        <input type="number" id="diapersPerMinute" name="diapersPerMinute" required><br>
 
-    <button type="button" onclick="calculateGel()">Calcular</button>
+        <button type="button" onclick="calculateGel()">Calcular</button>
 
-    <div id="gelResult"></div>
-</div>
+        <div id="gelResult"></div>
+    </div>
 </div>
 
 <div id="resultsContainer">
