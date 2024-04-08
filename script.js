@@ -159,3 +159,13 @@ function calculateGel() {
 }
 
 
+
+function toggleDiaperCalculator() {
+    var diaperCalculator = document.getElementById("diaperCalculator");
+    if (diaperCalculator.style.display === "none") {
+        diaperCalculator.style.display = "block";
+    } else {
+        diaperCalculator.style.display = "none";
+    }
+}
+

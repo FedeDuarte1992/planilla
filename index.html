@@ -9,41 +9,44 @@
 <body>
 <div id="container">
     <h1>Calculadora de Producción de Pañales</h1>
-    <form id="productionForm">
-        <label for="initialMachineCounter">Contador de Máquina Inicial:</label>
-        <input type="number" id="initialMachineCounter" name="initialMachineCounter" required><br>
-
-        <label for="currentMachineCounter">Contador de Máquina Actual:</label>
-        <input type="number" id="currentMachineCounter" name="currentMachineCounter" required><br>
-
-        <label for="quantityBags1">Cantidad de Bultos de Pañales de 1ra Calidad:</label>
-        <input type="number" id="quantityBags1" name="quantityBags1"><br>
-
-        <label for="quantityBags2">Cantidad de Bultos de Pañales de 2da Calidad:</label>
-        <input type="number" id="quantityBags2" name="quantityBags2"><br>
-
-        <label for="quantityBags">Cantidad de Bolsas de Descarte:</label>
-        <input type="number" id="quantityBags" name="quantityBags"><br>
-
-        <label for="diaperSize">Tamaño de los bultos de pañales:</label>
-        <select id="diaperSize" name="diaperSize">
-            <option value="80">80</option>
-            <option value="90">90</option>
-        </select><br>
-    </form>
-    <button type="button" onclick="calculateProduction()">Calcular Producción</button>
+    <button type="button" onclick="toggleDiaperCalculator()">Calculadora de Pañales</button>
+    <button type="button" onclick="calculateGel();toggleGelFields()">Calcular Gel</button>
     <button type="button" onclick="openGoogleSheets()">Abrir en Google Sheets</button>
+    
+    <div id="diaperCalculator" style="display: none;">
+        <form id="productionForm">
+            <label for="initialMachineCounter">Contador de Máquina Inicial:</label>
+            <input type="number" id="initialMachineCounter" name="initialMachineCounter" required><br>
 
-    <button type="button" onclick="toggleGelFields()">Calcular Gel</button>
+            <label for="currentMachineCounter">Contador de Máquina Actual:</label>
+            <input type="number" id="currentMachineCounter" name="currentMachineCounter" required><br>
 
-<div id="gelFields" style="display: none;">
+            <label for="quantityBags1">Cantidad de Bultos de Pañales de 1ra:</label>
+            <input type="number" id="quantityBags1" name="quantityBags1"><br>
+
+            <label for="quantityBags2">Cantidad de Bultos de Pañales de 2da:</label>
+            <input type="number" id="quantityBags2" name="quantityBags2"><br>
+
+            <label for="quantityBags">Cantidad de Bolsas de Descarte:</label>
+            <input type="number" id="quantityBags" name="quantityBags"><br>
+
+            <label for="diaperSize">Tamaño de los bultos de pañales:</label>
+            <select id="diaperSize" name="diaperSize">
+                <option value="80">80</option>
+                <option value="90">90</option>
+            </select><br>
+            <button type="button" onclick="calculateProduction()">Calcular Producción</button>
+        </form>
+    </div>
+
+    <div id="gelFields" style="display: none;">
     <label for="totalWeight">Peso Total (g):</label>
     <input type="number" id="totalWeight" name="totalWeight" required><br>
 
-    <label for="multiplier">Multiplicador :</label>
+    <label for="multiplier">Multiplicador (10 o 15):</label>
     <select id="multiplier" name="multiplier">
-        <option value="6" selected>6</option>
-        <option value="4">4</option>
+        <option value="10" selected>10</option>
+        <option value="15">15</option>
     </select><br>
 
     <label for="diapersPerMinute">Pañales por minuto:</label>
@@ -53,9 +56,6 @@
 
     <div id="gelResult"></div>
 </div>
-
-
-    
 </div>
 
 <div id="resultsContainer">
@@ -70,8 +70,8 @@
             <th>Unidades de 1ra </th>
             <th>Unidades de 2da </th>
             <th>Descarte (Bolsas)</th>
-            <th>Descarte </th>
-            <th>Eliminar</th>
+            <th>Descarte (%)</th>
+            <th>❌</th>
         </tr>
     </table>
 </div>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Producción</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 210mm; /* Ancho similar al de una hoja A4 */
+    margin: 20px auto;
+    border: 1px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin-bottom: 20px;
+  }
+
+  .header .company-info, .header .rpon-info {
+    width: 30%;
+    text-align: center;
+  }
+
+  .header .title {
+    width: 40%;
+    text-align: center;
+  }
+
+  .table-container {
+    margin-bottom: 20px;
+    width: 100%; /* Ajustar el ancho al 100% */
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .data-row td {
+    width: 25%; /* Divide el ancho de la fila en 4 partes iguales */
+  }
+
+  /* Estilo para alinear las tablas en línea */
+  .table-container.inline {
+    display: flex;
+    justify-content: space-between; /* Alinear las tablas en los extremos */
+  }
+
+  .table-container.inline > div {
+    width: 30%; /* Ancho igual para cada tabla */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="company-info">
+      <div>HISAN</div>
+    </div>
+    <div class="title">
+      <h1>REGISTRO DE PRODUCCIÓN</h1>
+    </div>
+    <div class="rpon-info">
+      <div>N°</div>
+      <div>RPON</div>
+      <div>Vigente desde...</div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <h2>DATOS GENERALES</h2>
+    <table>
+      <tr class="data-row">
+        <td>Fecha</td>
+        <td>Turno</td>
+        <td>Hora Inicio</td>
+        <td>Hora Finalización</td>
+      </tr>
+      <tr class="data-row">
+        <td>OT</td>
+        <td>Lote</td>
+        <td>Fecha de Vencimiento</td>
+        <td></td>
+      </tr>
+      <tr class="data-row">
+        <td>Cód. Producción</td>
+        <td>Producto</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Contenedor para las tablas "Personal", "Control de Gel" y "Liberación de Línea" -->
+  <div class="table-container inline">
+    <!-- Tabla de Personal -->
+    <div id="personalTable">
+      <h3>Personal</h3>
+      <table>
+          <tr>
+              <td>Supervisor</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Maquinista</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Ayudante</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Control de Calidad</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Supervisor Control de Calidad</td>
+              <td></td>
+          </tr>
+      </table>
+    </div>
+
+    <!-- Tabla de Control de Gel -->
+    <div id="gelControlTable">
+      <h3>Control de Gel</h3>
+      <table>
+          <tr>
+              <td>Hora</td>
+              <td>Cant. (gr)</td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+          </tr>
+      </table>
+    </div>
+
+    <!-- Tabla de Liberación de Línea -->
+    <div id="liberacionLineaTable">
+      <h3>Liberación de Línea</h3>
+      <table>
+          <tr>
+              <td>Hora</td>
+              <td>Firma</td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+          </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="table-container">
+  <div class="table-container-item" style="width: 100%;">
+    <h3>Control de Producción</h3>
+    <table>
+      <tr>
+        <td>Hora</td>
+        <td>N° Contador de Máquina</td>
+        <td>Bultos de Primera</td>
+        <td>Bultos de Segunda</td>
+        <td>Golpes de Máquina</td>
+        <td>Unidades de Primera</td>
+        <td>Unidades de Segunda</td>
+        <td>Descarte (%)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  <!-- Agrega más contenedores de tablas según sea necesario -->
+
+</div>
+
+</body>
+</html>
