@@ -169,5 +169,3 @@ function calculateGelAndToggleFields() {
     calculateGel();
     toggleGelFields();
 }
-
-
