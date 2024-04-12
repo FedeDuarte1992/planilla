@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Producción de Pañales</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+
+
 </head>
 <body>
 <div id="container">
     <h1>Calculadora de Producción de Pañales</h1>
     <button type="button" onclick="toggleDiaperCalculator()">Calculadora de Pañales</button>
     <button type="button" onclick="calculateGelAndToggleFields()">Calcular Gel</button>
-    <button type="button" onclick="openGoogleSheets()">Abrir en Google Sheets</button>
+    <button type="button" onclick="registro()">Planilla de registro</button>
+
+    <button type="button" onclick="openGoogleSheets()">Generar Planilla</button>
     
     <div id="diaperCalculator" style="display: none;">
         <form id="productionForm">
@@ -75,6 +79,7 @@
         </tr>
     </table>
 </div>
+
 
 <script src="script.js"></script>
 </body>

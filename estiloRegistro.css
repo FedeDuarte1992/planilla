@@ -1,66 +1,106 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+   
+    margin: 1%;
+    padding: 1%;
 }
 
-.container {
-  width: 210mm; /* Ancho similar al de una hoja A4 */
-  margin: 20px auto;
-  border: 1px solid #000;
-  padding: 20px;
-  box-sizing: border-box;
+#container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #f2f2f2;
-  margin-bottom: 20px;
+h1 {
+    text-align: center;
+    color: #333;
 }
 
-.header .company-info, .header .rpon-info {
-  width: 30%;
-  text-align: center;
+form {
+    margin-bottom: 20px;
 }
 
-.header .title {
-  width: 40%;
-  text-align: center;
+label {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
 
-.table-container {
-  margin-bottom: 20px;
-  width: 100%; /* Ajustar el ancho al 100% */
+input[type="number"],
+select {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+button {
+    margin: 5px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#resultsContainerParadas,
+#resultsContainer {
+    text-align: center;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 th {
-  background-color: #f2f2f2;
+    background-color: #f0f0f0;
+    font-weight: bold;
 }
 
-.data-row td {
-  width: 25%; /* Divide el ancho de la fila en 4 partes iguales */
-}
+@media screen and (max-width: 300px) {
+    #container {
+        max-width: 100%;
+    }
 
-/* Estilo para alinear las tablas en línea */
-.table-container.inline {
-  display: flex;
-  justify-content: space-between; /* Alinear las tablas en los extremos */
-}
+    input[type="number"],
+    select,
+    button {
+        width: 100%;
+    }
 
-.table-container.inline > div {
-  width: 30%; /* Ancho igual para cada tabla */
+    #resultsContainerParadas,
+    #resultsContainer {
+        width: 100%;
+        overflow-x: auto;
+    }
 }
