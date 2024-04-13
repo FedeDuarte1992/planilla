@@ -170,4 +170,9 @@ function calculateGelAndToggleFields() {
     toggleGelFields();
 }
 
-
+ function openRegistroPage() {
+        window.location.href = "registro.html";
+    }
+ function openCargarDatosProductoPage() {
+        window.location.href = "cargarDatosDeProducto.html";
+    }

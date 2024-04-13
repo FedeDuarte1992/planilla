@@ -13,7 +13,9 @@
     <h1>Calculadora de Producción de Pañales</h1>
     <button type="button" onclick="toggleDiaperCalculator()">Calculadora de Pañales</button>
     <button type="button" onclick="calculateGelAndToggleFields()">Calcular Gel</button>
-    <button type="button" onclick="registro()">Planilla de registro</button>
+    <button type="button" onclick="openRegistroPage()">Planilla de registro</button>
+
+    <button type="button" onclick="openCargarDatosProductoPage()">Cargar Datos de Producto</button>
 
     <button type="button" onclick="openGoogleSheets()">Generar Planilla</button>
     
@@ -49,8 +51,8 @@
 
         <label for="multiplier">Multiplicador (10 o 15):</label>
         <select id="multiplier" name="multiplier">
-            <option value="6" selected>10 segundos</option>
-            <option value="4">15 segundos</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
         </select><br>
 
         <label for="diapersPerMinute">Pañales por minuto:</label>

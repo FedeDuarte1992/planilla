@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cargar Datos de Producto</title>
+<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+
+<div id="container">
+    <h1>Cargar Datos de Producto</h1>
+    <form id="productDataForm">
+        <label for="ot">OT:</label>
+        <input type="text" id="ot" name="ot" required><br>
+
+        <label for="lote">Lote:</label>
+        <input type="text" id="lote" name="lote" required><br>
+
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto" required onchange="setProductCode()">
+            <option value="">Seleccione un producto</option>
+            <option value="Anatomico G 10 x 8">Anatomico G 10 x 8</option>
+            <option value="Anatomico G 5 x 16">Anatomico G 5 x 16</option>
+            <option value="Anatomico EG 10 x 8">Anatomico EG 10 x 8</option>
+            <option value="Anatomico EG 5 x 16">Anatomico EG 5 x 16</option>
+            <option value="Anatomico PAMI G 3 x 30">Anatomico PAMI G 3 x 30</option>
+            <option value="Anatomico PAMI EG 3 x 30">Anatomico PAMI EG 3 x 30</option>
+        </select><br>
+
+        <label for="codigoProducto">Código de Producto:</label>
+        <input type="text" id="codigoProducto" name="codigoProducto" readonly><br>
+
+       <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+<input type="date" id="fechaVencimiento" name="fechaVencimiento" required><br>
+
+
+
+
+        <button type="submit">Guardar Datos</button>
+    </form>
+
+    <h2>Datos de Producto Registrados:</h2>
+    <table id="productDataTable">
+        <thead>
+            <tr>
+                <th>OT</th>
+                <th>Lote</th>
+                <th>Producto</th>
+                <th>Código de Producto</th>
+                <th>Fecha de Vencimiento</th>
+            </tr>
+        </thead>
+        <tbody id="productDataBody">
+            <!-- Aquí se agregarán las filas de datos ingresados -->
+        </tbody>
+    </table>
+</div>
+
+<script src="scriptCargarDatosProducto.js"></script>
+
+</body>
+</html>
