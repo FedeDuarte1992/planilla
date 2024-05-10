@@ -184,8 +184,11 @@ function calculateWastage() {
     var horasMaquina = parseInt(document.getElementById('horasMaquina').value);
     var golpesActuales = parseInt(document.getElementById('golpesActuales').value);
 
+    // Convertir las horas a minutos
+    var minutosMaquina = horasMaquina * 60;
+
     // Calcular los golpes ideales en función de las horas de máquina
-    var golpesIdeales = idealGolpes * horasMaquina;
+    var golpesIdeales = idealGolpes * minutosMaquina;
 
     // Calcular la eficiencia de la máquina
     var eficiencia = (golpesActuales / golpesIdeales) * 100;
