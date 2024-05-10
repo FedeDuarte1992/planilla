@@ -19,6 +19,18 @@
 
     <button type="button" onclick="openGoogleSheets()">Generar Planilla</button>
     
+<button type="button" onclick="calculateWastage()">Calcular Merma</button>
+        <label for="product">Producto:</label>
+        <input type="text" id="product" name="product" required><br>
+        <label for="idealGolpes">Golpes Ideales por Minuto:</label>
+        <input type="number" id="idealGolpes" name="idealGolpes" required><br>
+        <label for="horasMaquina">Horas de Máquina:</label>
+        <input type="number" id="horasMaquina" name="horasMaquina" required><br>
+        <label for="golpesActuales">Golpes de Máquina Actuales:</label>
+        <input type="number" id="golpesActuales" name="golpesActuales" required><br>
+
+
+
     <div id="diaperCalculator" style="display: none;">
         <form id="productionForm">
             <label for="initialMachineCounter">Contador de Máquina Inicial:</label>
