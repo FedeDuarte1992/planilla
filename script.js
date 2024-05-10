@@ -200,6 +200,7 @@ function calculateWastage() {
 }
 
 
+
  function openWastageCalculation() {
             // Mostrar el div para calcular la merma
             document.getElementById('wastageCalculation').style.display = "block";
