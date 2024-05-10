@@ -192,5 +192,7 @@ function calculateWastage() {
     var merma = ((golpesIdeales - golpesActuales) / golpesIdeales) * 100;
 
     // Mostrar la merma en la producción
-    alert("La merma en la producción es del " + merma.toFixed(2) + "%.");
+    var wastageResult = document.getElementById('wastageResult');
+    wastageResult.innerHTML = "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>";
 }
+
