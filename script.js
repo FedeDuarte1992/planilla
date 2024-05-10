@@ -178,7 +178,6 @@ function calculateGelAndToggleFields() {
     }
 
 
-
 function calculateWastage() {
     // Obtener los valores ingresados por el usuario
     var idealGolpes = parseInt(document.getElementById('idealGolpes').value);
@@ -188,13 +187,18 @@ function calculateWastage() {
     // Calcular los golpes ideales en función de las horas de máquina
     var golpesIdeales = idealGolpes * horasMaquina;
 
-    // Calcular la merma en la producción
-    var merma = ((golpesIdeales - golpesActuales) / golpesIdeales) * 100;
+    // Calcular la eficiencia de la máquina
+    var eficiencia = (golpesActuales / golpesIdeales) * 100;
 
-    // Mostrar la merma en la producción
+    // Calcular la merma en la producción
+    var merma = 100 - eficiencia;
+
+    // Mostrar los resultados
     var wastageResult = document.getElementById('wastageResult');
-    wastageResult.innerHTML = "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>";
+    wastageResult.innerHTML = "<p>La eficiencia de la máquina es del " + eficiencia.toFixed(2) + "%.</p>" +
+                              "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>";
 }
+
 
  function openWastageCalculation() {
             // Mostrar el div para calcular la merma
