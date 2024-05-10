@@ -196,3 +196,9 @@ function calculateWastage() {
     wastageResult.innerHTML = "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>";
 }
 
+function openWastageCalculation() {
+    // Mostrar el div para calcular la merma
+    document.getElementById('wastageCalculation').style.display = "block";
+}
+
+
