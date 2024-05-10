@@ -19,7 +19,7 @@
 
     <button type="button" onclick="openGoogleSheets()">Generar Planilla</button>
     
-  <button type="button" onclick="openWastageCalculation()">Calcular Merma</button>
+  <button type="button" id="openWastageCalculationButton" onclick="openWastageCalculation()">Calcular Merma</button>
     </div>
 
     <div id="wastageCalculation" style="display: none;">
@@ -32,7 +32,7 @@
         <button type="button" onclick="calculateWastage()">Calcular</button>
     </div>
 
- <div id="resultsContainer">
+    <div id="resultsContainer">
         <h2>Resultados:</h2>
         <div id="wastageResult"></div>
     </div>
