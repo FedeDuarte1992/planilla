@@ -176,3 +176,21 @@ function calculateGelAndToggleFields() {
  function openCargarDatosProductoPage() {
         window.location.href = "cargarDatosDeProducto.html";
     }
+
+
+
+function calculateWastage() {
+    // Obtener los valores ingresados por el usuario
+    var idealGolpes = parseInt(document.getElementById('idealGolpes').value);
+    var horasMaquina = parseInt(document.getElementById('horasMaquina').value);
+    var golpesActuales = parseInt(document.getElementById('golpesActuales').value);
+
+    // Calcular los golpes ideales en función de las horas de máquina
+    var golpesIdeales = idealGolpes * horasMaquina;
+
+    // Calcular la merma en la producción
+    var merma = ((golpesIdeales - golpesActuales) / golpesIdeales) * 100;
+
+    // Mostrar la merma en la producción
+    alert("La merma en la producción es del " + merma.toFixed(2) + "%.");
+}
