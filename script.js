@@ -201,7 +201,7 @@ var pañalesDescartados = (merma / 100) * (horasMaquina * 60 * golpesActuales);
     wastageResult.innerHTML = "<p>La eficiencia de la máquina es del " + eficiencia.toFixed(2) + "%.</p>" +
                               "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>";
     "<p>La cantidad de pañales descartados es de " + Math.round(pañalesDescartados) + " pañales.</p>";
-}
+
 }
 
 
