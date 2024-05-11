@@ -180,6 +180,8 @@ function calculateGelAndToggleFields() {
 
 function calculateWastage() {
     // Obtener los valores ingresados por el usuario
+    vfunction calculateWastage() {
+    // Obtener los valores ingresados por el usuario
     var idealGolpes = parseInt(document.getElementById('idealGolpes').value);
     var horasMaquina = parseInt(document.getElementById('horasMaquina').value);
     var golpesActuales = parseInt(document.getElementById('golpesActuales').value);
@@ -193,18 +195,22 @@ function calculateWastage() {
     // Calcular la eficiencia de la máquina
     var eficiencia = (golpesActuales / golpesIdeales) * 100;
 
+    // Calcular la cantidad de pañales producidos con la eficiencia actual
+    var pañalesProducidos = (eficiencia / 100) * golpesIdeales;
+
     // Calcular la merma en la producción
-    var merma = 100 - eficiencia;
+    var merma = golpesIdeales - pañalesProducidos;
 
     // Calcular la cantidad de pañales descartados
-    var pañalesDescartados = (merma / 100) * (horasMaquina * 60 * golpesActuales);
+    var pañalesDescartados = merma;
 
     // Mostrar los resultados
     var wastageResult = document.getElementById('wastageResult');
     wastageResult.innerHTML = "<p>La eficiencia de la máquina es del " + eficiencia.toFixed(2) + "%.</p>" +
-                              "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>" +
+                              "<p>La merma en la producción es de " + Math.round(merma) + " pañales.</p>" +
                               "<p>La cantidad de pañales descartados es de " + Math.round(pañalesDescartados) + " pañales.</p>";
 }
+
 
 
 
