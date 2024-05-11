@@ -213,11 +213,20 @@ function calculateWastage() {
 
 
  function openWastageCalculation() {
-            // Mostrar el div para calcular la merma
-            document.getElementById('wastageCalculation').style.display = "block";
-            // Desactivar el botón para abrir el cálculo de merma después de hacer clic en él
-            document.getElementById('openWastageCalculationButton').disabled = true;
-     
-        } 
+    var wastageCalculationDiv = document.getElementById('wastageCalculation');
+    // Verificar si el div está actualmente visible
+    if (wastageCalculationDiv.style.display === "block") {
+        // Si está visible, ocultarlo
+        wastageCalculationDiv.style.display = "none";
+        // Habilitar nuevamente el botón de abrir cálculo de merma
+        document.getElementById('openWastageCalculationButton').disabled = false;
+    } else {
+        // Si está oculto, mostrarlo
+        wastageCalculationDiv.style.display = "block";
+        // Desactivar el botón para abrir el cálculo de merma después de hacer clic en él
+        document.getElementById('openWastageCalculationButton').disabled = true;
+    }
+}
+
 
 
