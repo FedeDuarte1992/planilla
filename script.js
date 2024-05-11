@@ -203,7 +203,7 @@ function calculateWastage() {
     var wastageResult = document.getElementById('wastageResult');
     wastageResult.innerHTML = "<p>La eficiencia de la máquina es del " + eficiencia.toFixed(2) + "%.</p>" +
                               "<p>La merma en la producción es del " + mermaPorcentual.toFixed(2) + "%.</p>" +
-                              "<p>La cantidad de pañales descartados es de " + Math.round(pañalesDescartados) + " pañales.</p>";
+                              "<p>La cantidad de pañales que no se hicieron es de " + Math.round(pañalesDescartados) + " pañales.</p>";
 }
 
 
