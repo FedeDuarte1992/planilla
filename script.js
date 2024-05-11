@@ -228,5 +228,18 @@ function calculateWastage() {
     }
 }
 
+function toggleWastageCalculation() {
+    var wastageCalculationDiv = document.getElementById('wastageCalculation');
+    var currentState = wastageCalculationDiv.getAttribute('data-state');
+    if (currentState === "closed") {
+        // Si está cerrado, abrirlo
+        wastageCalculationDiv.style.display = "block";
+        wastageCalculationDiv.setAttribute('data-state', 'open');
+    } else {
+        // Si está abierto, cerrarlo
+        wastageCalculationDiv.style.display = "none";
+        wastageCalculationDiv.setAttribute('data-state', 'closed');
+    }
+}
 
 
