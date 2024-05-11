@@ -195,7 +195,7 @@ function calculateWastage() {
 
     // Calcular la merma en la producción
     var merma = 100 - eficiencia;
-    
+
     // Calcular la cantidad de pañales descartados
     var pañalesDescartados = (merma / 100) * (horasMaquina * 60 * golpesActuales);
 
@@ -205,6 +205,7 @@ function calculateWastage() {
                               "<p>La merma en la producción es del " + merma.toFixed(2) + "%.</p>" +
                               "<p>La cantidad de pañales descartados es de " + Math.round(pañalesDescartados) + " pañales.</p>";
 }
+
 
 
 
