@@ -213,7 +213,7 @@ function calculateWastage() {
 
 
  function openWastageCalculation() {
-    var wastageCalculationDiv = document.getElementById('wastageCalculation');
+    var wastageCalculationDiv = document.getElementById('wastageCalculationContent');
     // Verificar si el div está actualmente visible
     if (wastageCalculationDiv.style.display === "block") {
         // Si está visible, ocultarlo
@@ -227,6 +227,7 @@ function calculateWastage() {
         document.getElementById('openWastageCalculationButton').disabled = true;
     }
 }
+
 
 function toggleWastageCalculation() {
     var wastageCalculationDiv = document.getElementById('wastageCalculation');
