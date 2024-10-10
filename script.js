@@ -243,11 +243,6 @@ function toggleWastageCalculation() {
     }
 }
 
-function caclculartiempo() {
-    var gelFields = document.getElementById("calculartiempo");
-    if (gelFields.style.display === "none") {
-        gelFields.style.display = "block";
-    } else {
-        gelFields.style.display = "none";
+function calculartiempo() {
+        window.location.href = "calculartiempo.html";
     }
-}
