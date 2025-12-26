@@ -7,8 +7,7 @@ function calculateProduction() {
     var cantidadBultos2 = parseInt(document.getElementById("quantityBags2").value);
     var cantidadDescarte = parseInt(document.getElementById("quantityBags").value);
     var tamanoPañal = parseInt(document.getElementById("diaperSize").value);
-    var tamañoBulto1 = tamanoPañal === 80 ? 80 : (tamanoPañal === 90 ? 90 : 120);
-
+    var tamañoBulto1 = tamanoPañal === 80 ? 80 : 90;
 
     var golpesMaquina = contadorActual - contadorInicial;
     if (golpesMaquina < 0) {
@@ -247,5 +246,6 @@ function toggleWastageCalculation() {
 function calculartiempo() {
         window.location.href = "calculartiempo.html";
     }
+
 
 
